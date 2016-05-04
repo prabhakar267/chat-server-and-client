@@ -6,7 +6,7 @@ Simple server and client side python scripts for instant messaging.
 
 + Run [server script](server.py)
 ```python
-python server.py
+python server.py <port-number>
 ```
 + Open another window / tab 
 + Run [client script](client.py)
