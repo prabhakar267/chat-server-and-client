@@ -2,11 +2,11 @@
 # @Author: prabhakar
 # @Date:   2016-04-24 16:40:30
 # @Last Modified by:   Prabhakar Gupta
-# @Last Modified time: 2016-05-04 02:31:41
+# @Last Modified time: 2016-05-05 02:08:04
 
 import socket
 import select
-
+import sys
 
 def broadcast_data (sock, message):
 	for socket in CONNECTION_LIST:
@@ -19,9 +19,14 @@ def broadcast_data (sock, message):
 
 
 if __name__ == "__main__":
+	if len(sys.argv) < 2:
+		PORT = 5000
+	else:
+		PORT = int(sys.argv[1])
+		
+
 	CONNECTION_LIST = []
 	RECV_BUFFER = 4096
-	PORT = 5000
 
 	server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
